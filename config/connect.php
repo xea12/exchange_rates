@@ -7,7 +7,7 @@ ini_set('display_errors', 1 );
 $hostname = "localhost"; 
 $database = "kursy_walut";
 $username = "root";
-$password = "wiesio0";
+$password = "";
 
 $conn = new mysqli($hostname, $username, $password, $database);
 

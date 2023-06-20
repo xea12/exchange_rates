@@ -22,9 +22,6 @@ $db->closeConnection();
     <body>
     <div class="container">
         <?php 
-           // if($_SESSION['success']) {
-             //   $_SESSION['success'] = FALSE;
-           // } 
         ?>
         <div class="calculator">
             <h1>Kalkulator walut</h1>

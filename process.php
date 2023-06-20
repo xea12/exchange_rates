@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Brak danych kursów wymiany w bazie.";
 }
 $db->closeConnection();
-echo "<script>openPopup();</script>";
 header ('Location: /index.php')
 ?>
 
