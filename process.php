@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'config/connect.php';
 require_once 'classes/database.php';
 $db = new DatabaseConnection($hostname, $username, $password, $database);
@@ -11,11 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $toCurrency = explode('-',$_POST['to_currency']);
         $toCurrencyValue = $toCurrency[0];
         $toCurrencyCode = $toCurrency[1];
-
-    
         $convertedAmount = $amount * ($fromCurrencyValue / $toCurrencyValue);
-
-        /* echo "Przeliczona kwota: $convertedAmount $toCurrencyCode "; */
+        $_SESSION['success'] = TRUE;
         $db->saveExchangeResult($fromCurrencyCode, $toCurrencyCode, $amount, $convertedAmount);
     } else {
         echo "Brak kursów wymiany dla podanych walut.";
@@ -24,8 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Brak danych kursów wymiany w bazie.";
 }
 $db->closeConnection();
-
+echo "<script>openPopup();</script>";
+header ('Location: /index.php')
 ?>
 
-<script type="text/javascript">location.href="http://localhost/nbp/"</script>
+
 

@@ -10,8 +10,8 @@ if (!$conn) {
 $delSchedule = "TRUNCATE TABLE exchange_rates";
 mysqli_query($conn, $delSchedule);
 $urls = array(
-    'urlA' => 'http://api.nbp.pl/api/exchangerates/tables/A/',
-    'urlB' => 'http://api.nbp.pl/api/exchangerates/tables/B/'
+    'urlA' => 'http://api.nbp.pl/api/exchangerates/tables/A/last/',
+    'urlB' => 'http://api.nbp.pl/api/exchangerates/tables/B/last/'
 );
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -47,10 +47,12 @@ foreach ($data[0]['rates'] as $rate) {
 $query = rtrim($query, ','); 
 
 if ($conn->query($query)) {
-    echo "Dane zostały zapisane w bazie danych.";
+   // echo "Dane zostały zapisane w bazie danych.";
 } else {
     echo "Błąd zapisu danych: " . $conn->error;
 }
 
 
 $conn->close(); 
+header ('Location: /index.php')
+?>

@@ -1,32 +1,105 @@
 .container {
-  display: flex;
+  text-align: center;
+}
+
+H1 {
+  color: #615e5e;
 }
 .calculator {
+  margin-bottom: 20px;
+}
+
+form {
+  display: inline-block;
+}
+
+form span {
   display: block;
+  margin-bottom: 10px;
 }
+
+form .input label,
+form .choose label {
+  display: inline-block;
+  width: 80px;
+  
+  text-align: right;
+  margin-right: 10px;
+}
+
+form .input input[type="text"] {
+  min-height: 40px;
+  width: 350px;
+}
+form .choose select {
+  min-height: 40px;
+  width: 2s50px;
+}
+
+.history-table,
 .currency-table {
-  max-height: 1000px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
 }
+
 table {
-  width: 25%;
   border-collapse: collapse;
+  width: 100%;
 }
 
-th,
-td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+table th,
+table td {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
 }
 
-th {
+.history-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-tr:nth-child(even) {
+.history-table tr:hover {
+  background-color: #e0e0e0;
+}
+
+.history-table p {
+  color: #615e5e;
+  font-size: 22px;
+}
+.currency-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-tr:hover {
-  background-color: #f5f5f5;
+.currency-table tr:hover {
+  background-color: #eaf2ff;
+}
+.btn {
+  display: inline-block;
+  width: 240px;
+  margin-top: 10px;
+  margin-left: 75px;
+  padding: 10px 20px;
+  background-color: #1bcc41;
+  border: 2px solid #1bcc41;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.update-button {
+  display: inline-block;
+  width: 200px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #139c31;
+}
+.update-button:hover {
+  background-color: #0056b3;
 }
